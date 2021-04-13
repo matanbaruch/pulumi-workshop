@@ -4,3 +4,18 @@
 ```
 brew install kubectl
 ```
+
+## Clone this repository
+```
+git clone https://github.com/matanbaruch/pulumi-workshop.git
+```
+
+## Configure Kubernetes Config
+```
+pulumi stack output kubeconfig > ~/.kube/config
+```
+
+## Verify
+```
+kubectl get nodes
+```
