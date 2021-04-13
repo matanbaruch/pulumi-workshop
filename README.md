@@ -1,5 +1,7 @@
 ## pulumi-workshop
 
+## NOTE: MAKE SURE YOU ARE LOGGED IN OneLogin
+
 ### Install kubectl
 ```
 brew install kubectl
