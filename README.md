@@ -10,6 +10,11 @@ brew install kubectl
 git clone https://github.com/matanbaruch/pulumi-workshop.git
 ```
 
+## Install package dependencies
+```
+npm install
+```
+
 ## Configure Kubernetes Config
 ```
 pulumi stack output kubeconfig > ~/.kube/config
