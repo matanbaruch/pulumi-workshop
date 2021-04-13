@@ -16,6 +16,11 @@ git clone https://github.com/matanbaruch/pulumi-workshop.git
 npm install
 ```
 
+### Use Stack
+```
+pulumi stack select ironsource-aura/dev
+```
+
 ### Configure Kubernetes Config - This will overwrite any existing KubeConfig you have
 ```
 pulumi stack output kubeconfig > ~/.kube/config
