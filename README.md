@@ -16,7 +16,7 @@ git clone https://github.com/matanbaruch/pulumi-workshop.git
 npm install
 ```
 
-### Configure Kubernetes Config
+### Configure Kubernetes Config - This will overwrite any existing KubeConfig you have
 ```
 pulumi stack output kubeconfig > ~/.kube/config
 ```
