@@ -1,26 +1,25 @@
-# pulumi-workshop
+## pulumi-workshop
 
-## Install kubectl
+### Install kubectl
 ```
 brew install kubectl
 ```
-
-## Clone this repository
+### Clone this repository
 ```
 git clone https://github.com/matanbaruch/pulumi-workshop.git
 ```
 
-## Install package dependencies
+### Install package dependencies
 ```
 npm install
 ```
 
-## Configure Kubernetes Config
+### Configure Kubernetes Config
 ```
 pulumi stack output kubeconfig > ~/.kube/config
 ```
 
-## Verify
+### Verify
 ```
 kubectl get nodes
 ```
