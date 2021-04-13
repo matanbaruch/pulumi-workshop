@@ -42,7 +42,24 @@ const cluster = new eks.Cluster(name, {
     tags: {
         Owner: "lbriggs",
         owner: "lbriggs",
-    }
+    },
+    roleMappings: [
+        {
+            roleArn: "arn:aws:iam::805787217936:user/chen.leibovich",
+            groups: ["system:masters"],
+            username: "chen:leibovich",
+        },
+        {
+            roleArn: "arn:aws:iam::805787217936:role/onelogin-aura-full-admin",
+            groups: ["system:masters"],
+            username: "full:admin",
+        },
+        {
+            roleArn: "arn:aws:iam::805787217936:role/onelogin-aura-infra-elevated",
+            groups: ["system:masters"],
+            username: "infra:admin",
+        }
+    ]
 });
 
 vpc.privateSubnetIds.then(id => id.forEach((id, index) => {
@@ -53,25 +70,5 @@ vpc.privateSubnetIds.then(id => id.forEach((id, index) => {
     }, { parent: cluster})
 }))
 
-// Create the EKS cluster admins role.
-const adminsName = "admins";
-const adminsIamRole = new aws.iam.Role(`${adminsName}-eksClusterAdmin`, {
-    assumeRolePolicy: aws.getCallerIdentity().then(id =>
-        aws.iam.assumeRolePolicyForPrincipal({"AWS": `arn:aws:iam::${id.accountId}:root`}))
-})
-const adminsIamRolePolicy = new aws.iam.RolePolicy(`${adminsName}-eksClusterAdminPolicy`, {
-    role: adminsIamRole,
-    policy: {
-        Version: "2012-10-17",
-        Statement: [
-            { Effect: "Allow", Action: ["eks:*", "ec2:DescribeImages"], Resource: "*", },
-            { Effect: "Allow", Action: "iam:PassRole", Resource: "*"},
-        ],
-    },
-},
-    { parent: adminsIamRole },
-);
-
 export const clusterName = cluster.eksCluster.name
 export const kubeconfig = cluster.kubeconfig
-export const adminsIamRoleArn = adminsIamRole.arn
