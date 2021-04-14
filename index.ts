@@ -22,8 +22,8 @@ const vpc = new awsx.ec2.Vpc(`${name}-vpc`, {
         }],
     tags: {
         Name: `${name}-vpc`,
-        Owner: "lbriggs",
-        owner: "lbriggs",
+        Owner: "matanbaruch",
+        owner: "matanbarcuh",
     }
 });
 
@@ -40,24 +40,19 @@ const cluster = new eks.Cluster(name, {
     maxSize: 2,
     createOidcProvider: true,
     tags: {
-        Owner: "lbriggs",
-        owner: "lbriggs",
+        Owner: "matanbaruch",
+        owner: "matanbaruch",
     },
     roleMappings: [
         {
-            roleArn: "arn:aws:iam::805787217936:user/chen.leibovich",
+            roleArn: "arn:aws:iam::805787217936:user/admin",
             groups: ["system:masters"],
             username: "chen:leibovich",
         },
         {
-            roleArn: "arn:aws:iam::805787217936:role/onelogin-aura-full-admin",
+            roleArn: "arn:aws:iam::805787217936:role/fulladmin",
             groups: ["system:masters"],
             username: "full:admin",
-        },
-        {
-            roleArn: "arn:aws:iam::805787217936:role/onelogin-aura-infra-elevated",
-            groups: ["system:masters"],
-            username: "infra:admin",
         }
     ]
 });
