@@ -1,6 +1,6 @@
 ## pulumi-workshop
 
-## NOTE: MAKE SURE YOU ARE LOGGED IN OneLogin
+## NOTE: MAKE SURE YOUR AWS CREDS ARE SET
 
 ### Install kubectl
 ```
