@@ -18,7 +18,7 @@ npm install
 
 ### Use Stack
 ```
-pulumi stack select ironsource-aura/dev
+pulumi stack select eks-workshop/dev
 ```
 
 ### Configure Kubernetes Config - This will overwrite any existing KubeConfig you have
