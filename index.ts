@@ -43,18 +43,7 @@ const cluster = new eks.Cluster(name, {
         Owner: "matanbaruch",
         owner: "matanbaruch",
     },
-    roleMappings: [
-        {
-            roleArn: "arn:aws:iam::805787217936:user/admin",
-            groups: ["system:masters"],
-            username: "chen:leibovich",
-        },
-        {
-            roleArn: "arn:aws:iam::805787217936:role/fulladmin",
-            groups: ["system:masters"],
-            username: "full:admin",
-        }
-    ]
+    roleMappings: []
 });
 
 vpc.privateSubnetIds.then(id => id.forEach((id, index) => {
